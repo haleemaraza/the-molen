@@ -7,15 +7,13 @@ import { z } from "zod";
 export async function GET(req: NextRequest) {
     let url = req.nextUrl.searchParams
 
-
-
     try {
         if (url.has("userid")) {
             const { userid } = validateUserId.parse({ userid: url.get("userid") })
             const cartData = await db
                 .select()
                 .from(cartTable)
-                .where(eq(cartTable.userid, "userid"))
+                .where(eq(cartTable.userid, userid))
             return NextResponse.json(cartData)
         } else {
 
@@ -23,7 +21,9 @@ export async function GET(req: NextRequest) {
         }
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return NextResponse.json({ error: "Invalid request payload" }, { status: 422 })
+            return NextResponse.json(
+                { error: "Invalid request payload" }, 
+                { status: 422 })
 
         }
         let rr = (error as { message: string }).message
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     const validatedBody = validatePOST.parse(body);
 
 
-    console.log("valida", validatedBody)
+    // console.log("valida", validatedBody)
 
 
     try {

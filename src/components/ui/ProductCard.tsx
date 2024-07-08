@@ -24,7 +24,7 @@ const ProductCard: FC<{ product: singleProductType }> = ({ product }) => {
       </Link>
       <div className="flex justify-between">
         <div className="p">
-          <h2 className="text-gray-800 text-bold">
+          <h2 className="text-gray-800 font-bold">
             {product.name}
           </h2>
           <p className="text-gray-500 text-sm">{product.producttype}</p>

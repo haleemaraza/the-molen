@@ -20,7 +20,7 @@ const OurProduct = () => {
           <Link
             href="/male"
             className='text-white font-bold '
-          ><Image src={Men} alt="men" width={100} height={100} className='object-top object-cover max-h-[150px] invert ' />
+          ><Image src={Men} alt="men" width={100} height={100} className=' invert ' />
             <h4 className='mt-4'>Men</h4>
             <p></p>
           </Link>

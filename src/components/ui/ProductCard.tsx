@@ -12,24 +12,24 @@ const ProductCard: FC<{ product: singleProductType }> = ({ product }) => {
   }
 
   return (
-    <div className="lg:1/3 rounded-lg shadow-md  w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-4 mt-10"> 
-      <Link href={`/brief/${product.slug.current}`}>
+    <div className="group flex flex-col">
+      <Link href={`/brief/${product.slug.current}`} className="block overflow-hidden">
         <Image
-          className="w-full h-full object-cover object-bottom bg-gray-200 group-hover:opacity-75"
+          className="w-full aspect-[3/4] object-cover bg-gray-100 transition-opacity duration-300 group-hover:opacity-80"
           src={urlForImage(product.image.asset).url()}
           alt={product.name}
           width={700}
-          height={700}
+          height={900}
         />
       </Link>
-      <div className="flex justify-between">
-        <div className="p">
-          <h2 className="text-gray-800 font-bold">
+      <div className="mt-3 flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide truncate">
             {product.name}
           </h2>
-          <p className="text-gray-500 text-sm">{product.producttype}</p>
+          <p className="text-xs text-gray-400 mt-0.5 capitalize">{product.producttype}</p>
         </div>
-        <p>${product.price}.00</p>
+        <p className="text-sm font-semibold text-gray-800 whitespace-nowrap">${product.price}.00</p>
       </div>
     </div>
   );

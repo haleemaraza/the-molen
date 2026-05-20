@@ -9,20 +9,18 @@ const OurProduct = () => {
       <h3 className='text-xl playfairdisplay font-300 text-white'>Our Products</h3>
       <p className='mb-5 text-gray-400'>Designing impeccable fits for both, we blend precision tailoring with timeless style</p>
       <div className='flex flex-wrap justify-center gap-8'>
-        <div className='flex gap-20 rounded-lg space-x-14'>
-          <Link
-            href="/female"
-            className='text-white font-bold'
-          > <Image src={Women} alt="women" width={100} height={100} className='invert'/>
+        <div className='flex gap-20 rounded-lg'>
+          <Link href="/female" className='text-white font-bold flex flex-col items-center'>
+            <div className='relative w-[100px] h-[140px]'>
+              <Image src={Women} alt="women" fill className='object-contain invert' />
+            </div>
             <h4 className='mt-4'>Women</h4>
-            <p></p>
           </Link>
-          <Link
-            href="/male"
-            className='text-white font-bold '
-          ><Image src={Men} alt="men" width={100} height={100} className=' invert ' />
+          <Link href="/male" className='text-white font-bold flex flex-col items-center'>
+            <div className='relative w-[100px] h-[140px]'>
+              <Image src={Men} alt="men" fill className='object-contain invert' />
+            </div>
             <h4 className='mt-4'>Men</h4>
-            <p></p>
           </Link>
         </div>
       </div>

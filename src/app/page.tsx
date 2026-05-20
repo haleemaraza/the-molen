@@ -14,7 +14,7 @@ export default async function Home() {
    <>
    <LandingPage />
    <OurProduct/>
-   <ProductGridViewer ProductData={data.result.slice(11,14)} />
+   <ProductGridViewer ProductData={data.result.slice(11,15)} />
    <ShopDetails />
    <End />
    </>

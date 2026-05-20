@@ -30,32 +30,29 @@ const Navbar = () => {
 
     return (
         <div>
-            <header className="text-black text-xl body-font playfairdisplay">
-                <div className="container mx-auto flex flex-wrap  flex-col md:flex-row items-center">
-                    <nav className="lg:flex hidden lg:w-2/5 flex-wrap items-center text-xl md:ml-auto space-x-10">
-                        {navArray.map((item, index) => (
-                            <Link key={item.href} href={item.href} className="cursor-pointer mr-5  hover:text-gray-900">{item.label}</Link>
+            <header className="text-black body-font playfairdisplay">
+                <div className="container mx-auto flex flex-row items-center justify-between px-4 py-3">
+                    {/* Left: nav links desktop only */}
+                    <nav className="hidden lg:flex lg:w-2/5 items-center space-x-8 text-base">
+                        {navArray.map((item) => (
+                            <Link key={item.href} href={item.href} className="hover:text-gray-500 transition-colors">{item.label}</Link>
                         ))}
-
                     </nav>
-                    <Link className="cursor-pointer flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0" href={"/"}>
-                        <Image src="/logo.png" alt="logo" width={150} height={150} className="" />
+
+                    {/* Center: Logo */}
+                    <Link className="flex items-center justify-center flex-1 lg:flex-none lg:w-1/5" href="/">
+                        <Image src="/logo.png" alt="logo" width={120} height={120} className="w-28 lg:w-36" />
                     </Link>
-                    <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
 
-                        <div className="space-x-10 flex items-center ">
-
-                            <ShoppingCart size={30} />
-
-                            <SignedIn>
-                                <UserButton />
-                            </SignedIn>
-
-                            <SignedOut>
-                                <SignInButton />
-                            </SignedOut>
-
-                        </div>
+                    {/* Right: icons */}
+                    <div className="flex items-center space-x-5 lg:w-2/5 lg:justify-end">
+                        <ShoppingCart size={24} className="cursor-pointer" />
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
+                        <SignedOut>
+                            <SignInButton />
+                        </SignedOut>
                     </div>
                 </div>
             </header>
